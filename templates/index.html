@@ -1,0 +1,10 @@
+<html>
+<h1>
+    Upload image file
+</h1>
+<form action="/upload" enctype="multipart/form-data" method="POST">
+    <input type="hidden" name="token" value="{{.auth_token}}">
+    <input type="file" name="uploadfile"/>
+    <input type="submit">
+</form>
+</html>
