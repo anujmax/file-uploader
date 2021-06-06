@@ -7,11 +7,6 @@ type FileMetaData struct {
 	DateCreated    string
 }
 
-/*type UploadError interface {
-	Message() string
-	Status() int
-}*/
-
 type UploadError struct {
 	message string
 	status  int

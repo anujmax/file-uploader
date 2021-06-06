@@ -28,7 +28,7 @@ func SaveFile(c *gin.Context) (*domain.FileMetaData, *domain.UploadError) {
 		)
 	}
 	fileMetadata.FileIdentifier = fileId
-	fileMetadata.DateCreated = time.Now().UTC().Format("2006-01-02 15:04:05")
+	fileMetadata.DateCreated = time.Now().UTC().Format("2020-06-06 15:04:05")
 	err = file_meta.SaveFileMeta(fileMetadata)
 	if err != nil {
 		return nil, domain.NewRestError(
