@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Docker/MySQL/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docker/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/authenticator_service_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/file_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/file_meta/file_db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/MySQL/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savepath/01aebc7d-33d5-437b-8e16-cfced0abe4b7/qrcode_anujmax.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/savepath/50762bb2-ed69-430b-99b1-f9e2a4f86272/qrcode_anujmax.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/savepath/5b2c28c0-f921-496b-ae81-9041228f48f0/qrcode_anujmax.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/savepath/87ce81d8-b0b3-454c-9950-caf3e3b2a216/qrcode_anujmax.com.png" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/Go/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savepath/bf49a7cd-73bb-44e5-988e-69b2f58cd880/qrcode_anujmax.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/authenticatorService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/authenticator_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/uploaderService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/uploader_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker/Go/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile_Go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker/MySQL/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile_Mysql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker/MySQL/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,14 @@
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1tZUD3hqmgs11h5oZhFHGn28owt" />
   <component name="ProjectViewState">
@@ -51,6 +54,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aagrawal\work\file-uploader" />
+      <recent name="C:\Users\aagrawal\work\file-uploader\src" />
       <recent name="C:\Users\aagrawal\work\file-uploader\Docker\MySQL" />
     </key>
   </component>
@@ -95,12 +100,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/service/authenticator_service.go</url>
+          <url>file://$PROJECT_DIR$/src/service/authenticator_service.go</url>
           <line>20</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/service/authenticator_service_test.go</url>
+          <url>file://$PROJECT_DIR$/src/service/authenticator_service_test.go</url>
           <line>8</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>

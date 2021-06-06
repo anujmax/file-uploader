@@ -7,8 +7,10 @@ import (
 )
 
 const (
-	queryInsertFileMeta = "INSERT INTO file_metadata(file_identifier, file_name, file_size, file_type, created_date) VALUES(?, ?, ?, ?, ? );"
-	queryGetFileMeta    = "SELECT file_identifier, file_name, file_size, file_type, file_size, created_date FROM file_metadata WHERE file_identifier=?;"
+	queryInsertFileMeta = "INSERT INTO file_metadata(file_identifier, file_name, file_size, file_type, created_date) " +
+		"VALUES(?, ?, ?, ?, ? );"
+	queryGetFileMeta = "SELECT file_identifier, file_name, file_size, file_type, file_size, created_date " +
+		"FROM file_metadata WHERE file_identifier=?;"
 )
 
 func SaveFileMeta(fileMetadata domain2.FileMetaData) error {
@@ -20,7 +22,8 @@ func SaveFileMeta(fileMetadata domain2.FileMetaData) error {
 	}
 	defer statement.Close()
 
-	_, saveErr := statement.Exec(fileMetadata.FileIdentifier, fileMetadata.FileName, fileMetadata.FileSize, fileMetadata.DateCreated)
+	_, saveErr := statement.Exec(fileMetadata.FileIdentifier, fileMetadata.FileName, fileMetadata.FileSize,
+		fileMetadata.FileType, fileMetadata.DateCreated)
 	if saveErr != nil {
 		log.Println("Error inserting file metadata" + saveErr.Error())
 		return saveErr
