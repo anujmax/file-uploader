@@ -1,23 +1,35 @@
 package file_meta
 
 import (
-	"github.com/anujmax/file-uploader/datasources/memdb"
+	"github.com/anujmax/file-uploader/datasources/file_meta"
 	"github.com/anujmax/file-uploader/domain"
+	"log"
 )
 
-func SaveFileMeta(fileMetadata domain.FileMetaData) (*domain.FileMetaData, error) {
+const (
+	queryInsertFileMeta = "INSERT INTO file_metadata(file_identifier, file_name, file_size, created_date) VALUES(?, ?, ?, ?);"
+	queryGetFileMeta    = "SELECT file_identifier, file_name, file_size, created_date FROM file_metadata WHERE file_identifier=?;"
+)
+
+func SaveFileMeta(fileMetadata domain.FileMetaData) error {
 	// Create a write transaction
-	txn := memdb.FileDb.Txn(true)
-	if err := txn.Insert("file_metadata", fileMetadata); err != nil {
-		return nil, err
+	statement, err := file_meta.Client.Prepare(queryInsertFileMeta)
+	if err != nil {
+		log.Println("Error creating mysql client" + err.Error())
+		return err
 	}
-	// Commit the transaction
-	txn.Commit()
-	return &fileMetadata, nil
+	defer statement.Close()
+
+	_, saveErr := statement.Exec(fileMetadata.FileIdentifier, fileMetadata.FileName, fileMetadata.FileSize, fileMetadata.DateCreated)
+	if saveErr != nil {
+		log.Println("Error inserting file metadata" + saveErr.Error())
+		return saveErr
+	}
+	return nil
 }
 
 func RetrieveFileMeta(FileIdentifier string) (*domain.FileMetaData, error) {
-	txn := memdb.FileDb.Txn(false)
+	/*txn := mysql.GetDb().Txn(false)
 	defer txn.Abort()
 
 	// Lookup by identifier
@@ -26,5 +38,6 @@ func RetrieveFileMeta(FileIdentifier string) (*domain.FileMetaData, error) {
 		return nil, err
 	}
 
-	return raw.(*domain.FileMetaData), nil
+	return raw.(*domain.FileMetaData), nil*/
+	return nil, nil
 }

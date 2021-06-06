@@ -7,26 +7,26 @@ type FileMetaData struct {
 	DateCreated    string
 }
 
-type UploadError interface {
+/*type UploadError interface {
 	Message() string
 	Status() int
-}
+}*/
 
-type uploadError struct {
+type UploadError struct {
 	message string
 	status  int
 }
 
-func (u uploadError) Message() string {
+func (u UploadError) Message() string {
 	return u.message
 }
 
-func (u uploadError) Status() int {
+func (u UploadError) Status() int {
 	return u.status
 }
 
-func NewRestError(message string, status int) UploadError {
-	return uploadError{
+func NewRestError(message string, status int) *UploadError {
+	return &UploadError{
 		message: message,
 		status:  status,
 	}

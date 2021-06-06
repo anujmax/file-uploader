@@ -7,8 +7,7 @@ import (
 )
 
 func UploadFile(c *gin.Context) {
-	authToken := c.Request.FormValue("token")
-	authError := service.Authenticate(authToken)
+	authError := service.Authenticate(c)
 	if authError != nil {
 		c.JSON(http.StatusForbidden, gin.H{
 			"message": authError.Error(),
