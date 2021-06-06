@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: file_uploader
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    container_name: file_uploader_db
+    ports:
+      - "3306:3306"
+    tty: true
+  app:
+    build:
+      context: ./Go
+    environment:
+      AUTH_TOKEN: "my_app_token"
+      mysql_users_schema: file_uploader
+      mysql_users_host: 127.0.0.1
+      mysql_users_username: root
+      mysql_users_password: root
+    volumes:
+      - "./Go:/go"
+    container_name: file_uploader_app
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - db

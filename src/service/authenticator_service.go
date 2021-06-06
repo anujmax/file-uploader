@@ -2,17 +2,15 @@ package service
 
 import (
 	"errors"
-	"github.com/gin-gonic/gin"
 	"os"
 )
 
 var (
-	authToken = os.Getenv("AUTH_TOKEN")
+	authenticationToken = os.Getenv("AUTH_TOKEN")
 )
 
-func Authenticate(c *gin.Context) error {
-	authToken := c.Request.FormValue("token")
-	if authToken == authToken {
+func Authenticate(authToken string) error {
+	if authToken == authenticationToken {
 		return nil
 	} else {
 		return errors.New("invalid auth token")
@@ -20,8 +18,8 @@ func Authenticate(c *gin.Context) error {
 }
 
 func GetAuthToken() (string, error) {
-	if len(authToken) > 0 {
-		return authToken, nil
+	if len(authenticationToken) > 0 {
+		return authenticationToken, nil
 	} else {
 		return "", errors.New("authentication token not present in env variable")
 	}

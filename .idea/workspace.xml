@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/file_controller_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/file_utils.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/file_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/file_meta_data.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/file_meta_data.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/file_meta/sql_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/file_repo/localfile_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/file_repo/localfile_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/uploaderService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/uploaderService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docker/MySQL/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docker/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/authenticator_service_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/file_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/file_meta/file_db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/MySQL/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savepath/01aebc7d-33d5-437b-8e16-cfced0abe4b7/qrcode_anujmax.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/savepath/50762bb2-ed69-430b-99b1-f9e2a4f86272/qrcode_anujmax.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/savepath/5b2c28c0-f921-496b-ae81-9041228f48f0/qrcode_anujmax.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/savepath/87ce81d8-b0b3-454c-9950-caf3e3b2a216/qrcode_anujmax.com.png" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/Go/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savepath/bf49a7cd-73bb-44e5-988e-69b2f58cd880/qrcode_anujmax.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/authenticatorService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/authenticator_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/uploaderService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/uploader_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +49,62 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aagrawal\work\file-uploader\Docker\MySQL" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestAuthenticateShouldGetToken in github.com/anujmax/file-uploader/service">
+    <configuration name="TestAuthenticateShouldGetToken in github.com/anujmax/file-uploader/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="file-uploader" />
+      <working_directory value="$PROJECT_DIR$/service" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/anujmax/file-uploader/service" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateShouldGetToken\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="authenticator_service_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="file-uploader" />
+      <working_directory value="$PROJECT_DIR$/service" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/service/authenticator_service_test.go" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestAuthenticateShouldGetToken in github.com/anujmax/file-uploader/service" />
+        <item itemvalue="Go Test.authenticator_service_test.go" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/authenticator_service.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/authenticator_service_test.go</url>
+          <line>8</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

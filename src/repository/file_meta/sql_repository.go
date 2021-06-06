@@ -1,8 +1,8 @@
 package file_meta
 
 import (
-	"github.com/anujmax/file-uploader/datasources/file_meta"
-	"github.com/anujmax/file-uploader/domain"
+	file_meta2 "github.com/anujmax/file-uploader/src/datasources/file_meta"
+	domain2 "github.com/anujmax/file-uploader/src/domain"
 	"log"
 )
 
@@ -11,9 +11,9 @@ const (
 	queryGetFileMeta    = "SELECT file_identifier, file_name, file_size, file_type, file_size, created_date FROM file_metadata WHERE file_identifier=?;"
 )
 
-func SaveFileMeta(fileMetadata domain.FileMetaData) error {
+func SaveFileMeta(fileMetadata domain2.FileMetaData) error {
 	// Create a write transaction
-	statement, err := file_meta.Client.Prepare(queryInsertFileMeta)
+	statement, err := file_meta2.Client.Prepare(queryInsertFileMeta)
 	if err != nil {
 		log.Println("Error creating mysql client" + err.Error())
 		return err
@@ -28,7 +28,7 @@ func SaveFileMeta(fileMetadata domain.FileMetaData) error {
 	return nil
 }
 
-func RetrieveFileMeta(FileIdentifier string) (*domain.FileMetaData, error) {
+func RetrieveFileMeta(FileIdentifier string) (*domain2.FileMetaData, error) {
 	/*txn := mysql.GetDb().Txn(false)
 	defer txn.Abort()
 

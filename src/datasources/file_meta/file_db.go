@@ -3,8 +3,9 @@ package file_meta
 import (
 	"database/sql"
 	"fmt"
-	"log"
 	_ "github.com/go-sql-driver/mysql"
+	"log"
+	"os"
 )
 
 const (
@@ -17,10 +18,10 @@ const (
 var (
 	Client *sql.DB
 
-	username = "root"          //os.Getenv(mysqlUsersUsername)
-	password = "my-secret-pw"  //os.Getenv(mysqlUsersPassword)
-	host     = "127.0.0.1"     //os.Getenv(mysqlUsersHost)
-	schema   = "file_uploader" //os.Getenv(mysqlUsersSchema)
+	username = os.Getenv(mysqlUsersUsername)
+	password = os.Getenv(mysqlUsersPassword)
+	host     = os.Getenv(mysqlUsersHost)
+	schema   = os.Getenv(mysqlUsersSchema)
 )
 
 func init() {
