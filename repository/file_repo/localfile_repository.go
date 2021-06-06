@@ -10,7 +10,15 @@ import (
 
 func Save(file multipart.File, header multipart.FileHeader) (string, error) {
 	var fileIdentifier = uuid.New().String()
-	err := os.Mkdir("./savepath/"+fileIdentifier, 0755)
+	_, err := os.Stat("./savepath")
+	if err != nil {
+		err := os.Mkdir("./savepath", 0755)
+		if err != nil {
+			log.Println("Error creating file path" + err.Error())
+			return "", err
+		}
+	}
+	err = os.Mkdir("./savepath/"+fileIdentifier, 0755)
 	if err != nil {
 		log.Println("Error creating file path" + err.Error())
 		return "", err

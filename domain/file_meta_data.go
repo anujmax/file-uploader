@@ -4,6 +4,7 @@ type FileMetaData struct {
 	FileIdentifier string
 	FileName       string
 	FileSize       int64
+	FileType	   string
 	DateCreated    string
 }
 
@@ -20,7 +21,7 @@ func (u UploadError) Status() int {
 	return u.status
 }
 
-func NewRestError(message string, status int) *UploadError {
+func NewUploadError(message string, status int) *UploadError {
 	return &UploadError{
 		message: message,
 		status:  status,
