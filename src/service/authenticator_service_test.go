@@ -1,38 +1,19 @@
 package service
 
 import (
-	"os"
+	"errors"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-func init() {
-	os.Setenv("AUTH_TOKEN", "test_token")
+func TestAuthenticateSuccess(t *testing.T) {
+	AuthenticationService.Initialize("test_token")
+	err := AuthenticationService.Authenticate("test_token")
+	assert.Nil(t, err)
 }
 
-func TestAuthenticateShouldGetToken(t *testing.T) {
-	//orig := os.Getenv("AUTH_TOKEN")
-	//os.Setenv("AUTH_TOKEN", "test_token")
-	token, err := GetAuthToken()
-
-	if token != "test_token" {
-		t.Errorf("token = %s; want test_token", token)
-	}
-
-	if err != nil {
-		t.Errorf("error = %s; want nil", err)
-	}
-	//t.Cleanup(func() { os.Setenv("AUTH_TOKEN", orig) })
+func TestAuthenticateFailure(t *testing.T) {
+	AuthenticationService.Initialize("test_token")
+	err := AuthenticationService.Authenticate("fake_token")
+	assert.Equal(t, err, errors.New("invalid auth token"))
 }
-
-/*func (a *AuthenticatorServiceTest) TestAuthenticateShouldGetError(t *testing.T) {
-	orig := os.Getenv("AUTH_TOKEN")
-	os.Setenv("AUTH_TOKEN", "")
-	token, err := GetAuthToken()
-	if err == nil {
-		t.Errorf("error = %s; want not nil", "nil")
-	}
-	if token != "" {
-		t.Errorf("token = %s; want empty ", token)
-	}
-	t.Cleanup(func() { os.Setenv("AUTH_TOKEN", orig) })
-}*/
