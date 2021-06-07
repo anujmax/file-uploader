@@ -1,9 +1,15 @@
-package file_meta
+package repository
 
 import (
-	"github.com/anujmax/file-uploader/src/datasources/file_meta"
+	"database/sql"
+	"fmt"
 	"github.com/anujmax/file-uploader/src/domain"
+	_ "github.com/go-sql-driver/mysql"
 	"log"
+)
+
+var (
+	FileMetaRepo fileMetaRepoInterface = &fileMetaRepo{}
 )
 
 const (
@@ -13,9 +19,39 @@ const (
 		"FROM file_metadata WHERE file_identifier=?;"
 )
 
-func SaveFileMeta(fileMetadata domain.FileMetaData) error {
+/**
+Repository to help Save and retrieve file meta like size, type
+*/
+type fileMetaRepoInterface interface {
+	SaveFileMeta(fileMetadata domain.FileMetaData) error
+	RetrieveFileMeta(fileIdentifier string) (*domain.FileMetaData, error)
+	Initialize(string, string, string, string) *sql.DB
+}
+
+type fileMetaRepo struct {
+	db *sql.DB
+}
+
+func (fm *fileMetaRepo) Initialize(username, password, host, schema string) *sql.DB {
+	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8",
+		username, password, host, schema,
+	)
+	log.Println("datasource= ", dataSourceName)
+	var err error
+	fm.db, err = sql.Open("mysql", dataSourceName)
+	if err != nil {
+		panic(err)
+	}
+	if err = fm.db.Ping(); err != nil {
+		panic(err)
+	}
+	log.Println("database successfully configured")
+	return fm.db
+}
+
+func (fm *fileMetaRepo) SaveFileMeta(fileMetadata domain.FileMetaData) error {
 	// Create a write transaction
-	statement, err := file_meta.Client.Prepare(queryInsertFileMeta)
+	statement, err := fm.db.Prepare(queryInsertFileMeta)
 	if err != nil {
 		log.Println("Error creating mysql client" + err.Error())
 		return err
@@ -31,10 +67,10 @@ func SaveFileMeta(fileMetadata domain.FileMetaData) error {
 	return nil
 }
 
-func RetrieveFileMeta(fileIdentifier string) (*domain.FileMetaData, error) {
+func (fm *fileMetaRepo) RetrieveFileMeta(fileIdentifier string) (*domain.FileMetaData, error) {
 	var fileMetadata domain.FileMetaData
 
-	statement, err := file_meta.Client.Prepare(queryGetFileMeta)
+	statement, err := fm.db.Prepare(queryGetFileMeta)
 	if err != nil {
 		log.Println("Error creating mysql client" + err.Error())
 		return &fileMetadata, err

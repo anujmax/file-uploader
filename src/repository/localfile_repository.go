@@ -1,4 +1,4 @@
-package file_repo
+package repository
 
 import (
 	"fmt"
@@ -11,9 +11,23 @@ import (
 	"os"
 )
 
+var (
+	FileRepo fileRepoInterface = &fileRepo{}
+)
+
+type fileRepo struct{}
+
+/**
+Repository to help Save and retrieve file contents
+ */
+type fileRepoInterface interface {
+	Save(multipart.File, multipart.FileHeader) (string, error)
+	Retrieve(domain.FileMetaData) ([]byte, error)
+}
+
 const FileBasePath = "./savepath"
 
-func Save(file multipart.File, header multipart.FileHeader) (string, error) {
+func (fr *fileRepo) Save(file multipart.File, header multipart.FileHeader) (string, error) {
 	var fileIdentifier = uuid.New().String()
 	_, err := os.Stat(FileBasePath)
 	if err != nil {
@@ -28,16 +42,6 @@ func Save(file multipart.File, header multipart.FileHeader) (string, error) {
 		log.Println("Error creating file path" + err.Error())
 		return "", err
 	}
-	//tempFile, err := ioutil.TempFile(FileBasePath+"/"+fileIdentifier, header.Filename)
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//defer tempFile.Close()
-	//fileBytes, err := ioutil.ReadAll(file)
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//tempFile.Write(fileBytes)
 
 	f, err := os.OpenFile(FileBasePath+"/"+fileIdentifier+"/"+header.Filename, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
@@ -57,7 +61,7 @@ func Save(file multipart.File, header multipart.FileHeader) (string, error) {
 	return fileIdentifier, nil
 }
 
-func Retrieve(fileMeta domain.FileMetaData) ([]byte, error) {
+func (fr *fileRepo) Retrieve(fileMeta domain.FileMetaData) ([]byte, error) {
 	data, err := ioutil.ReadFile(FileBasePath + "/" + fileMeta.FileIdentifier + "/" + fileMeta.FileName)
 	if err != nil {
 		fmt.Println("File reading error", err)

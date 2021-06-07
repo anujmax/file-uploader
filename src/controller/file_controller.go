@@ -9,7 +9,7 @@ import (
 
 func UploadFile(c *gin.Context) {
 	authToken := c.Request.FormValue("token")
-	authError := service.Authenticate(authToken)
+	authError := service.AuthenticationService.Authenticate(authToken)
 	if authError != nil {
 		c.JSON(http.StatusForbidden, gin.H{
 			"message": authError.Error(),
@@ -22,7 +22,7 @@ func UploadFile(c *gin.Context) {
 			"message": "No file is received",
 		})
 	}
-	fileMetaData, saveError := service.SaveFile(file, *header)
+	fileMetaData, saveError := service.FileService.SaveFile(file, *header)
 	if saveError != nil {
 		c.JSON(saveError.Status(), gin.H{
 			"message": saveError.Message(),
@@ -39,7 +39,7 @@ func UploadFile(c *gin.Context) {
 
 func DownloadFile(c *gin.Context) {
 	fileIdentifier := c.Param("id")
-	data, fileMeta, err := service.RetrieveFile(fileIdentifier)
+	data, fileMeta, err := service.FileService.RetrieveFile(fileIdentifier)
 	if err != nil {
 		c.JSON(err.Status(), gin.H{
 			"message": err.Message(),

@@ -2,25 +2,29 @@ package service
 
 import (
 	"errors"
-	"os"
 )
 
 var (
-	authenticationToken = os.Getenv("AUTH_TOKEN")
+	AuthenticationService authenticationServiceInterface = &authenticationService{}
 )
 
-func Authenticate(authToken string) error {
-	if authToken == authenticationToken {
+type authenticationService struct {
+	authenticationToken string
+}
+
+type authenticationServiceInterface interface {
+	Authenticate(string) error
+	Initialize(authToken string)
+}
+
+func (a *authenticationService) Authenticate(authToken string) error {
+	if authToken == a.authenticationToken {
 		return nil
 	} else {
 		return errors.New("invalid auth token")
 	}
 }
 
-func GetAuthToken() (string, error) {
-	if len(authenticationToken) > 0 {
-		return authenticationToken, nil
-	} else {
-		return "", errors.New("authentication token not present in env variable")
-	}
+func (a *authenticationService) Initialize(authToken string) {
+	a.authenticationToken = authToken
 }

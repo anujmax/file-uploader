@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/file_repo/localfile_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_repo/localfile_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/uploader_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/uploader_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/file_utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/file_utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/sql_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/file_repo/localfile_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/localfile_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/savepath/811189ba-64e8-4a26-8914-904046972d5a/qrcode_anujmax.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/authenticator_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/authenticator_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/uploader_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/file_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +51,11 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit-And-Integration-Testing" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aagrawal\work\file-uploader\src\repository" />
       <recent name="C:\Users\aagrawal\work\file-uploader" />
       <recent name="C:\Users\aagrawal\work\file-uploader\src" />
       <recent name="C:\Users\aagrawal\work\file-uploader\Docker\MySQL" />
@@ -101,11 +101,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/authenticator_service.go</url>
-          <line>20</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/service/authenticator_service_test.go</url>
           <line>8</line>

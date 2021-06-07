@@ -3,17 +3,27 @@ package service
 import (
 	"fmt"
 	"github.com/anujmax/file-uploader/src/domain"
-	"github.com/anujmax/file-uploader/src/repository/file_meta"
-	"github.com/anujmax/file-uploader/src/repository/file_repo"
+	"github.com/anujmax/file-uploader/src/repository"
 	"github.com/anujmax/file-uploader/src/utils"
 	"mime/multipart"
 	"net/http"
 	"time"
 )
 
+var (
+	FileService fileServiceInterface = &fileService{}
+)
+
+type fileService struct{}
+
+type fileServiceInterface interface {
+	SaveFile(multipart.File, multipart.FileHeader) (*domain.FileMetaData, *domain.UploadError)
+	RetrieveFile(string) ([]byte, *domain.FileMetaData, *domain.UploadError)
+}
+
 const supportedFileSizeBytes = 8388608
 
-func SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMetaData, *domain.UploadError) {
+func (f *fileService) SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMetaData, *domain.UploadError) {
 	if header.Size > supportedFileSizeBytes {
 		return nil, domain.NewUploadError(
 			fmt.Sprintf("File is bigger than supported %d Bytes", supportedFileSizeBytes),
@@ -34,7 +44,7 @@ func SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMet
 			http.StatusBadRequest,
 		)
 	}
-	fileId, err := file_repo.Save(file, header)
+	fileId, err := repository.FileRepo.Save(file, header)
 	if err != nil {
 		return nil, domain.NewUploadError(
 			"Unable to save the file",
@@ -42,7 +52,7 @@ func SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMet
 		)
 	}
 	var fileMetadata = getFileMeta(fileType, fileId, header)
-	err = file_meta.SaveFileMeta(fileMetadata)
+	err = repository.FileMetaRepo.SaveFileMeta(fileMetadata)
 	if err != nil {
 		return nil, domain.NewUploadError(
 			"Unable to save the file metadata",
@@ -62,15 +72,15 @@ func getFileMeta(fileType string, fileId string, header multipart.FileHeader) do
 	return fileMetadata
 }
 
-func RetrieveFile(fileIdentifier string) ([]byte, *domain.FileMetaData, *domain.UploadError) {
-	fileMeta, err := file_meta.RetrieveFileMeta(fileIdentifier)
+func (f *fileService) RetrieveFile(fileIdentifier string) ([]byte, *domain.FileMetaData, *domain.UploadError) {
+	fileMeta, err := repository.FileMetaRepo.RetrieveFileMeta(fileIdentifier)
 	if err != nil {
 		return nil, nil, domain.NewUploadError(
 			"Unable to get the file metadata",
 			http.StatusNotFound,
 		)
 	}
-	data, err := file_repo.Retrieve(*fileMeta)
+	data, err := repository.FileRepo.Retrieve(*fileMeta)
 	if err != nil {
 		return nil, nil, domain.NewUploadError(
 			"Unable to donwload file",

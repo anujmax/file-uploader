@@ -36,5 +36,5 @@ http://localhost:8080/
 
 2. The mysql storage data gets deleted everytime container is destroyed, we need to use centralized mysql database.
 
-3. The /download url is just for testing and not meant to be exposed, so more test coverage is needed for download
+3. The `/download` url is just for testing and not meant to be exposed, so more test coverage is needed for download
    endpoint.
