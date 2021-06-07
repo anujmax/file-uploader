@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/file_controller_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +46,13 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit-And-Integration-Testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/repository" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aagrawal\work\file-uploader\src\repository" />
+      <recent name="C:\Users\aagrawal\work\file-uploader\src\service" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\aagrawal\work\file-uploader\src\repository" />
       <recent name="C:\Users\aagrawal\work\file-uploader" />
@@ -56,74 +60,74 @@
       <recent name="C:\Users\aagrawal\work\file-uploader\Docker\MySQL" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller">
-    <configuration name="TestAuthenticationFailure in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestSaveFileMeta in github.com/anujmax/file-uploader/src/repository">
+    <configuration name="TestSaveFileContentNotImage in github.com/anujmax/file-uploader/src/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <working_directory value="$PROJECT_DIR$/src/service" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <package value="github.com/anujmax/file-uploader/src/service" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestAuthenticationFailure\E$" />
+      <pattern value="^\QTestSaveFileContentNotImage\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveFileMeta in github.com/anujmax/file-uploader/src/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <working_directory value="$PROJECT_DIR$/src/repository" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <package value="github.com/anujmax/file-uploader/src/repository" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestErrorSavingFile\E$" />
+      <pattern value="^\QTestSaveFileMeta\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestNoFilePresent in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveFileSaveFailedinRepo in github.com/anujmax/file-uploader/src/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <working_directory value="$PROJECT_DIR$/src/service" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <package value="github.com/anujmax/file-uploader/src/service" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestNoFilePresent\E$" />
+      <pattern value="^\QTestSaveFileSaveFailedinRepo\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUploadFile in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveFileSuccessful in github.com/anujmax/file-uploader/src/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <working_directory value="$PROJECT_DIR$/src/service" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <package value="github.com/anujmax/file-uploader/src/service" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestUploadFile\E$" />
+      <pattern value="^\QTestSaveFileSuccessful\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUploadFileSuccess in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveFileUnableToSaveMeta in github.com/anujmax/file-uploader/src/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <working_directory value="$PROJECT_DIR$/src/service" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <package value="github.com/anujmax/file-uploader/src/service" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestUploadFileSuccess\E$" />
+      <pattern value="^\QTestSaveFileUnableToSaveMeta\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller" />
-        <item itemvalue="Go Test.TestUploadFileSuccess in github.com/anujmax/file-uploader/src/controller" />
-        <item itemvalue="Go Test.TestNoFilePresent in github.com/anujmax/file-uploader/src/controller" />
-        <item itemvalue="Go Test.TestAuthenticationFailure in github.com/anujmax/file-uploader/src/controller" />
-        <item itemvalue="Go Test.TestUploadFile in github.com/anujmax/file-uploader/src/controller" />
+        <item itemvalue="Go Test.TestSaveFileMeta in github.com/anujmax/file-uploader/src/repository" />
+        <item itemvalue="Go Test.TestSaveFileSuccessful in github.com/anujmax/file-uploader/src/service" />
+        <item itemvalue="Go Test.TestSaveFileUnableToSaveMeta in github.com/anujmax/file-uploader/src/service" />
+        <item itemvalue="Go Test.TestSaveFileSaveFailedinRepo in github.com/anujmax/file-uploader/src/service" />
+        <item itemvalue="Go Test.TestSaveFileContentNotImage in github.com/anujmax/file-uploader/src/service" />
       </list>
     </recent_temporary>
   </component>
@@ -133,16 +137,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/authenticator_service_test.go</url>
-          <line>8</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

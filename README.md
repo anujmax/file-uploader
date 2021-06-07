@@ -1,6 +1,6 @@
 # file-uploader
 
-This is an image uploader service, where you can upload images.
+This is an image uploader service, where you can upload images upto 8 Mb size and save metadata like size, type.
 
 ## How to run
 
@@ -9,7 +9,7 @@ This is an image uploader service, where you can upload images.
 
 ```
    docker-compose up --build
-   ```
+```
 
 This will run following containers:
 ![img.png](img.png)
@@ -28,6 +28,37 @@ http://localhost:8080/
  http://localhost:8080/download/<file-uuid>
 ```
 
+## Run test:
+
+1. Make sure your pwd is `file-uploader` dir.
+2. Run following command
+
+```
+go test./...
+```
+
+## Database Schema
+
+1. File storage is currently local file storage inside docker.
+2. File metadata is saved in MySql DB with schema :
+
+```sql
+file_uploader
+```
+
+Table:
+
+```sql
+table file_metadata
+(
+    file_identifier varchar(36)   NOT NULL,
+    file_name       VARCHAR(1000) NOT NULL,
+    file_size       INT           NOT NULL,
+    file_type       varchar(36)   NOT NULL,
+    created_date    DATE,
+    PRIMARY KEY (file_identifier)
+);
+```
 
 ## Shortcomings / Future work
 
