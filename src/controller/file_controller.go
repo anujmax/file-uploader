@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"github.com/anujmax/file-uploader/src/domain"
 	"github.com/anujmax/file-uploader/src/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -29,12 +30,11 @@ func UploadFile(c *gin.Context) {
 		})
 		return
 	}
-	location := "/download/" + fileMetaData.FileIdentifier
-	c.JSON(http.StatusCreated, gin.H{
-		"message":  "Your file has been successfully uploaded.",
-		"Location": location,
-	})
-	c.Header("Location", "/download/"+fileMetaData.FileIdentifier)
+	var resp domain.Response
+	resp.Location = "/download/" + fileMetaData.FileIdentifier
+	resp.Message = "Your file has been successfully uploaded."
+	c.JSON(http.StatusCreated, resp)
+	c.Header("Location", resp.Location)
 }
 
 func DownloadFile(c *gin.Context) {
