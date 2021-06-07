@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/file_controller_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/file_meta_data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/file_meta_data.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,19 +56,7 @@
       <recent name="C:\Users\aagrawal\work\file-uploader\Docker\MySQL" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestNoFilePresent in github.com/anujmax/file-uploader/src/controller">
-    <configuration name="TestAuthenticateShouldGetToken in github.com/anujmax/file-uploader/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/service" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/anujmax/file-uploader/service" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateShouldGetToken\E$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Test.TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller">
     <configuration name="TestAuthenticationFailure in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
       <working_directory value="$PROJECT_DIR$/src/controller" />
@@ -82,6 +67,18 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTestAuthenticationFailure\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="file-uploader" />
+      <working_directory value="$PROJECT_DIR$/src/controller" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/anujmax/file-uploader/src/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestErrorSavingFile\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestNoFilePresent in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -108,23 +105,25 @@
       <pattern value="^\QTestUploadFile\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="authenticator_service_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUploadFileSuccess in github.com/anujmax/file-uploader/src/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="file-uploader" />
-      <working_directory value="$PROJECT_DIR$/service" />
+      <working_directory value="$PROJECT_DIR$/src/controller" />
       <root_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
+      <kind value="PACKAGE" />
+      <package value="github.com/anujmax/file-uploader/src/controller" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/service/authenticator_service_test.go" />
+      <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestUploadFileSuccess\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestErrorSavingFile in github.com/anujmax/file-uploader/src/controller" />
+        <item itemvalue="Go Test.TestUploadFileSuccess in github.com/anujmax/file-uploader/src/controller" />
         <item itemvalue="Go Test.TestNoFilePresent in github.com/anujmax/file-uploader/src/controller" />
         <item itemvalue="Go Test.TestAuthenticationFailure in github.com/anujmax/file-uploader/src/controller" />
         <item itemvalue="Go Test.TestUploadFile in github.com/anujmax/file-uploader/src/controller" />
-        <item itemvalue="Go Test.TestAuthenticateShouldGetToken in github.com/anujmax/file-uploader/service" />
-        <item itemvalue="Go Test.authenticator_service_test.go" />
       </list>
     </recent_temporary>
   </component>
