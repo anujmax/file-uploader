@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/file_repo/localfile_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_repo/localfile_repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/uploader_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/uploader_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/file_utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/file_utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

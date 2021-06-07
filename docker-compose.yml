@@ -20,10 +20,10 @@ services:
     environment:
       AUTH_TOKEN: "my_app_token"
       MYSQL_ROOT_PASSWORD: root
-      mysql_users_schema: file_uploader
-      mysql_users_host: db
-      mysql_users_username: root
-      mysql_users_password: root
+      mysql_schema: file_uploader
+      mysql_host: db
+      mysql_username: root
+      mysql_password: root
     container_name: file_uploader_app
     ports:
       - "8080:8080"

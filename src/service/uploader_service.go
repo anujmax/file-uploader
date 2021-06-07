@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"github.com/anujmax/file-uploader/src/domain"
 	"github.com/anujmax/file-uploader/src/repository/file_meta"
 	"github.com/anujmax/file-uploader/src/repository/file_repo"
@@ -10,11 +11,20 @@ import (
 	"time"
 )
 
+const supportedFileSizeBytes = 8388608
+
 func SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMetaData, *domain.UploadError) {
-	fileType, err := utils.GetFileType(file)
-	if err != nil {
+	if header.Size > supportedFileSizeBytes {
 		return nil, domain.NewUploadError(
-			"Error reading file",
+			fmt.Sprintf("File is bigger than supported %d Bytes", supportedFileSizeBytes),
+			http.StatusBadRequest,
+		)
+	}
+
+	fileType := header.Header.Get("content-type")
+	if len(fileType) < 0 {
+		return nil, domain.NewUploadError(
+			"Error reading file content",
 			http.StatusBadRequest,
 		)
 	}
@@ -50,4 +60,22 @@ func getFileMeta(fileType string, fileId string, header multipart.FileHeader) do
 	fileMetadata.FileIdentifier = fileId
 	fileMetadata.DateCreated = time.Now().UTC().Format("2006-01-02 15:04:05")
 	return fileMetadata
+}
+
+func RetrieveFile(fileIdentifier string) ([]byte, *domain.FileMetaData, *domain.UploadError) {
+	fileMeta, err := file_meta.RetrieveFileMeta(fileIdentifier)
+	if err != nil {
+		return nil, nil, domain.NewUploadError(
+			"Unable to get the file metadata",
+			http.StatusNotFound,
+		)
+	}
+	data, err := file_repo.Retrieve(*fileMeta)
+	if err != nil {
+		return nil, nil, domain.NewUploadError(
+			"Unable to donwload file",
+			http.StatusNotFound,
+		)
+	}
+	return data, fileMeta, nil
 }

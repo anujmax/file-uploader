@@ -1,21 +1,21 @@
 package file_meta
 
 import (
-	file_meta2 "github.com/anujmax/file-uploader/src/datasources/file_meta"
-	domain2 "github.com/anujmax/file-uploader/src/domain"
+	"github.com/anujmax/file-uploader/src/datasources/file_meta"
+	"github.com/anujmax/file-uploader/src/domain"
 	"log"
 )
 
 const (
 	queryInsertFileMeta = "INSERT INTO file_metadata(file_identifier, file_name, file_size, file_type, created_date) " +
 		"VALUES(?, ?, ?, ?, ? );"
-	queryGetFileMeta = "SELECT file_identifier, file_name, file_size, file_type, file_size, created_date " +
+	queryGetFileMeta = "SELECT file_identifier, file_name, file_size, file_type, created_date " +
 		"FROM file_metadata WHERE file_identifier=?;"
 )
 
-func SaveFileMeta(fileMetadata domain2.FileMetaData) error {
+func SaveFileMeta(fileMetadata domain.FileMetaData) error {
 	// Create a write transaction
-	statement, err := file_meta2.Client.Prepare(queryInsertFileMeta)
+	statement, err := file_meta.Client.Prepare(queryInsertFileMeta)
 	if err != nil {
 		log.Println("Error creating mysql client" + err.Error())
 		return err
@@ -31,16 +31,21 @@ func SaveFileMeta(fileMetadata domain2.FileMetaData) error {
 	return nil
 }
 
-func RetrieveFileMeta(FileIdentifier string) (*domain2.FileMetaData, error) {
-	/*txn := mysql.GetDb().Txn(false)
-	defer txn.Abort()
+func RetrieveFileMeta(fileIdentifier string) (*domain.FileMetaData, error) {
+	var fileMetadata domain.FileMetaData
 
-	// Lookup by identifier
-	raw, err := txn.First("file_metadata", "id", FileIdentifier)
+	statement, err := file_meta.Client.Prepare(queryGetFileMeta)
 	if err != nil {
-		return nil, err
+		log.Println("Error creating mysql client" + err.Error())
+		return &fileMetadata, err
 	}
+	defer statement.Close()
 
-	return raw.(*domain.FileMetaData), nil*/
-	return nil, nil
+	result := statement.QueryRow(fileIdentifier)
+	if getErr := result.Scan(&fileMetadata.FileIdentifier, &fileMetadata.FileName, &fileMetadata.FileSize,
+		&fileMetadata.FileType, &fileMetadata.DateCreated); getErr != nil {
+		log.Println("error when trying to get file by id", getErr)
+		return &fileMetadata, getErr
+	}
+	return &fileMetadata, nil
 }

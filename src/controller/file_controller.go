@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/anujmax/file-uploader/src/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -28,15 +29,24 @@ func UploadFile(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Your file has been successfully uploaded.",
+	location := "/download/" + fileMetaData.FileIdentifier
+	c.JSON(http.StatusCreated, gin.H{
+		"message":  "Your file has been successfully uploaded.",
+		"Location": location,
 	})
 	c.Header("Location", "/download/"+fileMetaData.FileIdentifier)
 }
 
 func DownloadFile(c *gin.Context) {
+	fileIdentifier := c.Param("id")
+	data, fileMeta, err := service.RetrieveFile(fileIdentifier)
+	if err != nil {
+		c.JSON(err.Status(), gin.H{
+			"message": err.Message(),
+		})
+		return
+	}
+	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=%s", fileMeta.FileName))
+	c.Data(http.StatusOK, fileMeta.FileType, data)
 
-	c.JSON(http.StatusNotImplemented, gin.H{
-		"message": "Not implemented",
-	})
 }

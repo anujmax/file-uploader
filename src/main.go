@@ -20,6 +20,6 @@ func main() {
 		})
 	})
 	router.POST("/upload", controller.UploadFile)
-	router.POST("/download/:id", controller.DownloadFile)
+	router.GET("/download/:id", controller.DownloadFile)
 	router.Run(":8080")
 }
