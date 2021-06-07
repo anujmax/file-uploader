@@ -1,8 +1,8 @@
 package main
 
 import (
-	controller2 "github.com/anujmax/file-uploader/src/controller"
-	service2 "github.com/anujmax/file-uploader/src/service"
+	"github.com/anujmax/file-uploader/src/controller"
+	"github.com/anujmax/file-uploader/src/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
-	authToken, err := service2.GetAuthToken()
+	authToken, err := service.GetAuthToken()
 	if err != nil {
 		panic(err)
 	}
@@ -19,7 +19,7 @@ func main() {
 			"auth_token": authToken,
 		})
 	})
-	router.POST("/upload", controller2.UploadFile)
-	router.POST("/download/:id", controller2.DownloadFile)
+	router.POST("/upload", controller.UploadFile)
+	router.POST("/download/:id", controller.DownloadFile)
 	router.Run(":8080")
 }

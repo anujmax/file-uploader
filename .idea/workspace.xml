@@ -4,13 +4,9 @@
     <list default="true" id="6f96b3fb-1614-4691-9314-c9e4567bec59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/Go/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile_Go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/MySQL/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile_Mysql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/MySQL/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasources/file_meta/file_db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/file_meta/sql_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/file_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/file_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/uploader_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/uploader_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

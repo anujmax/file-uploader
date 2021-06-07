@@ -1,14 +1,14 @@
 package controller
 
 import (
-	service2 "github.com/anujmax/file-uploader/src/service"
+	"github.com/anujmax/file-uploader/src/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 func UploadFile(c *gin.Context) {
 	authToken := c.Request.FormValue("token")
-	authError := service2.Authenticate(authToken)
+	authError := service.Authenticate(authToken)
 	if authError != nil {
 		c.JSON(http.StatusForbidden, gin.H{
 			"message": authError.Error(),
@@ -21,7 +21,7 @@ func UploadFile(c *gin.Context) {
 			"message": "No file is received",
 		})
 	}
-	_, saveError := service2.SaveFile(file, *header)
+	fileMetaData, saveError := service.SaveFile(file, *header)
 	if saveError != nil {
 		c.JSON(saveError.Status(), gin.H{
 			"message": saveError.Message(),
@@ -31,6 +31,7 @@ func UploadFile(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Your file has been successfully uploaded.",
 	})
+	c.Header("Location", "/download/"+fileMetaData.FileIdentifier)
 }
 
 func DownloadFile(c *gin.Context) {

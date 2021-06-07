@@ -1,40 +1,40 @@
 package service
 
 import (
-	domain2 "github.com/anujmax/file-uploader/src/domain"
-	file_meta2 "github.com/anujmax/file-uploader/src/repository/file_meta"
-	file_repo2 "github.com/anujmax/file-uploader/src/repository/file_repo"
-	utils2 "github.com/anujmax/file-uploader/src/utils"
+	"github.com/anujmax/file-uploader/src/domain"
+	"github.com/anujmax/file-uploader/src/repository/file_meta"
+	"github.com/anujmax/file-uploader/src/repository/file_repo"
+	"github.com/anujmax/file-uploader/src/utils"
 	"mime/multipart"
 	"net/http"
 	"time"
 )
 
-func SaveFile(file multipart.File, header multipart.FileHeader) (*domain2.FileMetaData, *domain2.UploadError) {
-	fileType, err := utils2.GetFileType(file)
+func SaveFile(file multipart.File, header multipart.FileHeader) (*domain.FileMetaData, *domain.UploadError) {
+	fileType, err := utils.GetFileType(file)
 	if err != nil {
-		return nil, domain2.NewUploadError(
+		return nil, domain.NewUploadError(
 			"Error reading file",
 			http.StatusBadRequest,
 		)
 	}
-	if !utils2.IsFileImage(fileType) {
-		return nil, domain2.NewUploadError(
+	if !utils.IsFileImage(fileType) {
+		return nil, domain.NewUploadError(
 			"File is not of type image",
 			http.StatusBadRequest,
 		)
 	}
-	fileId, err := file_repo2.Save(file, header)
+	fileId, err := file_repo.Save(file, header)
 	if err != nil {
-		return nil, domain2.NewUploadError(
+		return nil, domain.NewUploadError(
 			"Unable to save the file",
 			http.StatusInternalServerError,
 		)
 	}
 	var fileMetadata = getFileMeta(fileType, fileId, header)
-	err = file_meta2.SaveFileMeta(fileMetadata)
+	err = file_meta.SaveFileMeta(fileMetadata)
 	if err != nil {
-		return nil, domain2.NewUploadError(
+		return nil, domain.NewUploadError(
 			"Unable to save the file metadata",
 			http.StatusInternalServerError,
 		)
@@ -42,8 +42,8 @@ func SaveFile(file multipart.File, header multipart.FileHeader) (*domain2.FileMe
 	return &fileMetadata, nil
 }
 
-func getFileMeta(fileType string, fileId string, header multipart.FileHeader) domain2.FileMetaData {
-	var fileMetadata domain2.FileMetaData
+func getFileMeta(fileType string, fileId string, header multipart.FileHeader) domain.FileMetaData {
+	var fileMetadata domain.FileMetaData
 	fileMetadata.FileType = fileType
 	fileMetadata.FileName = header.Filename
 	fileMetadata.FileSize = header.Size
